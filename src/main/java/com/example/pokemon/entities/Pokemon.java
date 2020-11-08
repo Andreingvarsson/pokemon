@@ -2,25 +2,27 @@ package com.example.pokemon.entities;
 
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.util.List;
 
 public class Pokemon implements Serializable {
     private static final long serialVersionUID = -865214149412787221L;
 
     @Id
     private String id;
+    @NotBlank
     private String name;
+    @Min(1)
     private int height;
+    @Min(1)
     private int weight;
-
-
 
     public Pokemon() {
     }
 
     public Pokemon(String name, int height, int weight ) {
-        this.name = name;
+        this.name = name.toLowerCase();
         this.height = height;
         this.weight = weight;
     }
@@ -38,7 +40,7 @@ public class Pokemon implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toLowerCase();
     }
 
     public int getHeight() {
