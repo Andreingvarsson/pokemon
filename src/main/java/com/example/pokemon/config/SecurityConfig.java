@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .formLogin().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/api/v1/pokemon/").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/pokemon/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/v1/users").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/swagger-ui/**").permitAll()

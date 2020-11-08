@@ -48,7 +48,6 @@ public class UserService {
         } catch (DuplicateKeyException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format("The username: %s already exists", user.getUsername()));
         }
-
     }
 
     public void update(String id, User user) {
